@@ -25,6 +25,13 @@ alias gx='gitx --all'
 alias sshLabBox='ssh 10.5.147.203'
 alias sftpLabBox='sftp 10.5.147.203'
 alias proxy='export http_proxy=http://127.0.0.1:8282 && export https_proxy=http://127.0.0.1:8282'
+alias cleanRailsApp='rm -rf tmp/* && rm -rf log/* && rm -rf db/*.sqlite3'
+alias stopRailsApp='kill -9 $(cat tmp/pids/server.pid) && rm -rf tmp/* && rm -rf log/* && rm -rf db/*.sqlite3'
+alias startRailsApp='bundle install && bundle exec rake db:reset && bundle exec rails s -d'
+
+tarApp () {
+	tar -czvf $1 $2
+}
 
 # colors for misc things
     export TERM=xterm-color
